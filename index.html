@@ -7,35 +7,69 @@
     <style>
         body {
             background-color: #ffe6e6;
-            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
-            position: relative;
+            font-family: Arial, sans-serif;
         }
-        .button {
+        #yes-button, #no-button {
             font-size: 20px;
             padding: 10px 20px;
-            cursor: pointer;
             margin: 10px;
+            cursor: pointer;
         }
         #no-button {
             position: absolute;
-        }
-        .yes-button {
-            font-size: 20px;
-            padding: 20px 40px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h1>Will you be my Valentine?</h1>
-    <button class="button" id="yes-button">Yes ❤️</button>
-    <button class="button" id="no-button">No 💔</button>
+    <button id="yes-button">Yes ❤️</button>
+    <button id="no-button" style="left: 150px; top: 200px;">No 💔</button>
 
     <script>
-        // JavaScript Code goes here!
+        let noButton = document.getElementById('no-button');
+        let yesButton = document.getElementById('yes-button');
+        let body = document.body;
+
+        let clickCount = 0;
+
+        // When "No" button is clicked
+        noButton.addEventListener('click', function () {
+            clickCount++;
+
+            if (clickCount < 3) {
+                // Ask if they're sure
+                let confirmation = confirm('Are you sure? Sure sure?');
+                if (!confirmation) {
+                    // If they cancel, nothing happens
+                    return;
+                }
+            }
+
+            // Move the "No" button randomly
+            if (clickCount >= 3) {
+                let randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+                let randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+
+                noButton.style.left = randomX + 'px';
+                noButton.style.top = randomY + 'px';
+            }
+        });
+
+        // When "Yes" button is clicked
+        yesButton.addEventListener('click', function () {
+            let size = 20;
+            let interval = setInterval(function () {
+                if (size >= window.innerWidth) {
+                    clearInterval(interval);  // Stop when it covers the screen
+                }
+                yesButton.style.fontSize = size + 'px';
+                yesButton.style.padding = size + 'px';
+                size += 10;  // Increase the size
+            }, 100);  // Change the size every 100ms
+        });
     </script>
 </body>
 </html>
+
 
