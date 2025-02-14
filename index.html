@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Surprise</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+        }
+        .button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #no-button {
+            position: absolute;
+        }
+        .yes-button {
+            font-size: 20px;
+            padding: 20px 40px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="question">
-        <p>Will you be my Valentine?</p>
-        <button id="yesBtn">Yes ❤️</button>
-        <button id="noBtn">No 💔</button>
-    </div>
-    <script src="script.js"></script>
+    <h1>Will you be my Valentine?</h1>
+    <button class="button" id="yes-button">Yes ❤️</button>
+    <button class="button" id="no-button">No 💔</button>
+
+    <script>
+        // JavaScript Code goes here!
+    </script>
 </body>
 </html>
+
